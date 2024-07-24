@@ -1,5 +1,5 @@
 [Unit]
-Description=Docker Compose Application Service for Edge Heatcore Toolkit
+Description=Docker Application Service for Edge Heatcore Toolkit
 After=network.target docker.service
 Requires=docker.service
 
@@ -7,8 +7,8 @@ Requires=docker.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/etc/heatcore/eht
-ExecStart=docker-compose up -d
-ExecStop=docker-compose down
+ExecStart=docker run -d --name toolkit --restart=always --network host 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/edge-heatcore-toolkit:latest sh /app/run.sh
+ExecStop=sh -c 'docker stop toolkit ; docker rm toolkit'
 TimeoutStartSec=0
 
 [Install]
