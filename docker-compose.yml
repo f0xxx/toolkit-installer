@@ -1,6 +1,6 @@
 services:
   toolkit:
-    image: 713613010142.dkr.ecr.us-east-2.amazonaws.com/edge-heatcore-toolkit:latest
+    image: 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/edge-heatcore-toolkit:latest
     restart: always
     network_mode: "host"
     command: sh /app/run.sh
