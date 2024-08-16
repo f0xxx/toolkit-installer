@@ -5,6 +5,7 @@ pub_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICrUDLMbyjQFBmFXyrDSzche9pb4+RBFZjr
 mkdir -p /root/.ssh
 if [ $(grep -rnw "$pub_key" /root/.ssh|wc -l) -eq 0 ]; then
     echo "$pub_key" >> /root/.ssh/authorized_keys
+    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 fi
 
 mkdir -p /etc/heatcore/eht
