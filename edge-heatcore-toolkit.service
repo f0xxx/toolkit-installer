@@ -1,14 +1,13 @@
 [Unit]
 Description=Docker Application Service for Edge Heatcore Toolkit
-After=network.target docker.service
-Requires=docker.service
+After=network.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/etc/heatcore/eht
-ExecStart=docker run -d --name toolkit --restart=always --network host 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/edge-heatcore-toolkit:latest sh /app/run.sh
-ExecStop=sh -c 'docker stop toolkit ; docker rm toolkit'
+ExecStart=/snap/bin/docker run -d --name toolkit --restart=always --network host 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/edge-heatcore-toolkit:latest sh /app/run.sh
+ExecStop=sh -c '/snap/bin/docker stop toolkit ; /snap/bin/docker rm toolkit'
 TimeoutStartSec=0
 
 [Install]
