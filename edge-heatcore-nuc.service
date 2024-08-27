@@ -1,0 +1,14 @@
+[Unit]
+Description=Docker Application Service for Edge Heatcore Nuc
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/etc/heatcore/ehn
+ExecStart=sh -c 'export PATH=$PATH:/snap/bin;docker run -d --name nuc --restart=always -v /etc/heatcore/ehn:/data -p 8080:8080 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/heatcore-nuc:latest'
+ExecStop=sh -c 'export PATH=$PATH:/snap/bin;docker stop nuc;docker rm nuc'
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

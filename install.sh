@@ -13,7 +13,7 @@ curl -o /etc/systemd/system/edge-heatcore-toolkit.service https://gitee.com/hunt
 
 docker pull 713613010142.dkr.ecr.ap-southeast-1.amazonaws.com/edge-heatcore-toolkit:latest
 if [ $? -ne 0 ]; then
-    echo "docker pull failed!"
+    echo "docker pull toolkit failed!"
     exit 1
 fi
 
