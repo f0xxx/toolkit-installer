@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=$PATH:/snap/bin
+
 mkdir -p /etc/heatcore/ehn/logs
 mkdir -p /etc/heatcore/ehn/profile
 curl -o /etc/systemd/system/edge-heatcore-nuc.service https://gitee.com/hunt-sky/toolkit-installer/raw/release/edge-heatcore-nuc.service

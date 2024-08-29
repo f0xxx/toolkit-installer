@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=$PATH:/snap/bin
+
 systemctl stop edge-heatcore-nuc.service
 systemctl disable edge-heatcore-nuc.service
 

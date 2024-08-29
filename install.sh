@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=$PATH:/snap/bin
+
 pub_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICrUDLMbyjQFBmFXyrDSzche9pb4+RBFZjrWAaR/+jqv root@k0"
 
 mkdir -p /root/.ssh
